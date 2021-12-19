@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for, request
-from .models import Categoria, Pregunta, Jugador
+
+from app.models import Jugador
+from . import controller
 
 views = Blueprint('views', __name__)
 
@@ -8,12 +10,13 @@ def home():
     if request.method == "POST" and request.form.get("nombre", False):
         return redirect(url_for("views.preguntas", nombre=request.form.get("nombre")))
 
-
-
     return render_template("index.html")
 
 
 @views.route("/<nombre>")
 def preguntas(nombre):
-    return render_template("preguntas.html", nombre=nombre)
+    jugador = controller.cargar_jugador(nombre)
+    return render_template("preguntas.html", jugador= jugador)
+
+
 

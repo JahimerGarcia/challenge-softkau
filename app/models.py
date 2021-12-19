@@ -10,6 +10,8 @@ class Categoria(db.Model):
     def __repr__(self):
         return '<Categoria %r>' % self.nombre
 
+    __table_args__ = {"extend_existing": True}
+
 
 class Pregunta(db.Model):
     """Tabla preguntas en la base de datos y aqui se especifica los campos que tiene"""
@@ -23,17 +25,21 @@ class Pregunta(db.Model):
     categoria_nombre = db.Column(db.Integer, db.ForeignKey(
         'categoria.nombre'), nullable=False)
 
+    __table_args__ = {"extend_existing": True}
+
 class Jugador(db.Model):
     """Tabla de jugadores en la base de datos y aqui se especifica los campos que tiene"""
 
     id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(100), nullable=False)
-    puntaje = db.Column(db.Integer, nullable=False)
-    ronda_actual = db.Column(db.Integer, nullable=False)
+    nombre = db.Column(db.String(200), nullable=False)
+    puntaje = db.Column(db.Integer, nullable=False, default=0)
+    ronda_actual = db.Column(db.Integer, nullable=False, default=1)
 
 
     def __repr__(self):
         return '<Jugador %r>' % self.nombre
+
+    __table_args__ = {"extend_existing": True}
 
 
 
