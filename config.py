@@ -14,7 +14,6 @@ class DesarrolloConfiguracion(Configuracion):
     """
 
     DEBUG = True
-    SQLALCHEMY_ECHO = True
 
 
 class ProduccionConfiguracion(Configuracion):
