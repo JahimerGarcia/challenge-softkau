@@ -17,18 +17,16 @@ def preguntas(nombre):
     lista_preguntas = controller.cargar_juego(nombre)
     jugador = controller.consultar_jugador(nombre)
 
-    if lista_preguntas == False:
-        return redirect(url_for("views.home"))
-
     if request.method =="POST":
-        if controller.validar_respuestas(request.form):
+        if controller.validar_respuestas(request.form) and lista_preguntas:
             controller.subir_nivel(jugador)
             return redirect(url_for("views.preguntas", nombre=nombre))
         else:
             return redirect(url_for("views.preguntas", nombre=nombre))
 
 
-
+    if lista_preguntas == False:
+        return render_template("preguntas.html", jugador=jugador, preguntas="fin")
 
     return render_template("preguntas.html", preguntas= lista_preguntas, jugador=jugador)
 

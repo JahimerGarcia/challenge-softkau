@@ -246,7 +246,7 @@ def definir_preguntas():
 
 
     #extremo
-    crear_pregunta(enunciado="Si llegaste hasta aqui sabes bastante o aprendiste el patron de las preguntas las deje asi por si quieren ver que pasa si terminas el juego",
+    crear_pregunta(enunciado="Si llegaste hasta aqui sabes bastante o aprendiste el patron de las preguntas, las deje asi por si quieren ver que pasa si terminas el juego",
                         opcion1="fue para ahorrar tiempo",
                         opcion2="Fue para no usar JS",
                         opcion3="Fue para programar menos",
