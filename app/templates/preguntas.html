@@ -16,9 +16,11 @@
 
 <body>
         <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-                <div class="container"><a class="navbar-brand logo" href="#">SoftkaU</a><a class="navbar-brand logo"
-                                href="#">${{jugador.puntaje}}</a><a class="navbar-brand logo"
-                                href="#">{{jugador.nombre}}</a></div>
+                <div class="container">
+                        <a class="navbar-brand logo" href="#">SoftkaU</a>
+                        <a class="navbar-brand logo" href="#">${{jugador.puntaje}}</a>
+                        <a class="navbar-brand logo" href="#">{{jugador.nombre}}</a>
+                </div>
         </nav>
         <main class="page contact-us-page">
                 <!-- class="clean-block clean-form dark" -->
@@ -30,28 +32,41 @@
                                                 siguiente
                                                 ronda.</p>
                                 </div>
-                                <form>
+                                <form method="post">
                                         {% for pregunta in preguntas %}
                                         <p><b>{{pregunta.enunciado}}</b></p>
 
 
-                                        <div class="form-check"><input class="form-check-input" type="radio"
-                                                        id="formCheck-1"><label class="form-check-label"
-                                                        for="formCheck-1">{{pregunta.opcion1}}</label></div>
-                                        <div class="form-check"><input class="form-check-input" type="radio"
-                                                        id="formCheck-1"><label class="form-check-label"
-                                                        for="formCheck-1">{{pregunta.opcion2}}</label></div>
-                                        <div class="form-check"><input class="form-check-input" type="radio"
-                                                        id="formCheck-2"><label class="form-check-label"
-                                                        for="formCheck-2">{{pregunta.opcion_correcta}}</label></div>
-                                        <div class="form-check" style="margin-bottom: 30px;"><input
-                                                        class="form-check-input" type="radio" id="formCheck-6"><label
-                                                        class="form-check-label"
-                                                        for="formCheck-6">{{pregunta.opcion3}}</label></div>
+                                        <div class="form-check">
+                                                <input class="form-check-input" type="radio" id="formCheck-1" checked
+                                                        name="{{pregunta.enunciado}}" value="{{pregunta.opcion1}}">
+                                                <label class="form-check-label"
+                                                        for="formCheck-1">{{pregunta.opcion1}}</label>
+                                        </div>
+                                        <div class="form-check">
+                                                <input class="form-check-input" type="radio" id="formCheck-1"
+                                                        name="{{pregunta.enunciado}}" value="{{pregunta.opcion2}}">
+                                                <label class="form-check-label"
+                                                        for="formCheck-1">{{pregunta.opcion2}}</label>
+                                        </div>
+                                        <div class="form-check">
+                                                <input class="form-check-input" type="radio" id="formCheck-2"
+                                                        name="{{pregunta.enunciado}}"
+                                                        value="{{pregunta.opcion_correcta}}">
+                                                <label class="form-check-label"
+                                                        for="formCheck-2">{{pregunta.opcion_correcta}}</label>
+                                        </div>
+                                        <div class="form-check" style="margin-bottom: 30px;">
+                                                <input class="form-check-input" type="radio" id="formCheck-6"
+                                                        name="{{pregunta.enunciado}}" value="{{pregunta.opcion3}}">
+                                                <label class="form-check-label"
+                                                        for="formCheck-6">{{pregunta.opcion3}}</label>
+                                        </div>
                                         {% endfor %}
 
-                                        <div class="mb-3"><button class="btn btn-primary"
-                                                        type="submit">Siguiente</button></div>
+                                        <div class="mb-3">
+                                                <button class="btn btn-primary" type="submit">Siguiente</button>
+                                        </div>
                                 </form>
                         </div>
                 </section>

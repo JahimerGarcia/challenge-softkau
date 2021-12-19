@@ -2,6 +2,27 @@ from .models import Categoria, Pregunta, Jugador, db
 # Aqui se define la logica que usara la vista
 # habran funciones que trabajaran con los modelos haran operaciones CRUD
 
+def validar_respuestas(dict_respuetas) -> bool:
+    """
+    Valida las respuestas del jugador
+    """
+    for pregunta, respuesta in dict_respuetas.items():
+        pregunta = _consultar_pregunta(pregunta)
+        if pregunta.opcion_correcta != respuesta:
+            return False
+    return True
+
+
+def subir_nivel(jugador: Jugador):
+    """
+    sube el nivel del jugador
+    """
+    jugador.ronda_actual += 1
+    jugador.puntaje += 5 ** (jugador.ronda_actual + 1)
+    db.session.commit()
+    
+
+
 def consultar_jugador(nombre: str) -> Jugador:
     """regresa el jugador con el nombre dado y si no existe crea un registro en la bd """
     jugador = Jugador.query.filter_by(nombre=nombre).first()
