@@ -17,59 +17,72 @@
 <body>
         <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
                 <div class="container">
-                        <a class="navbar-brand logo" href="#">SoftkaU</a>
+                        <a class="navbar-brand logo" href="{{url_for('views.home')}}">SoftkaU</a>
                         <a class="navbar-brand logo" href="#">${{jugador.puntaje}}</a>
                         <a class="navbar-brand logo" href="#">{{jugador.nombre}}</a>
                 </div>
         </nav>
         <main class="page contact-us-page">
                 <!-- class="clean-block clean-form dark" -->
-                <section class="clean-block  dark">
+                {% if preguntas[0] == fin %}
+                <div class="jumbotron jumbotron-fluid">
                         <div class="container">
-                                <div class="block-heading">
-                                        <h2 class="text-info">RONDA {{jugador.ronda_actual}}</h2>
-                                        <p>Responde las 5 preguntas y si las respondes correctamente pasas a la
-                                                siguiente
-                                                ronda.</p>
-                                </div>
-                                <form method="post">
-                                        {% for pregunta in preguntas %}
-                                        <p><b>{{pregunta.enunciado}}</b></p>
-
-
-                                        <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="formCheck-1" checked
-                                                        name="{{pregunta.enunciado}}" value="{{pregunta.opcion1}}">
-                                                <label class="form-check-label"
-                                                        for="formCheck-1">{{pregunta.opcion1}}</label>
-                                        </div>
-                                        <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="formCheck-1"
-                                                        name="{{pregunta.enunciado}}" value="{{pregunta.opcion2}}">
-                                                <label class="form-check-label"
-                                                        for="formCheck-1">{{pregunta.opcion2}}</label>
-                                        </div>
-                                        <div class="form-check">
-                                                <input class="form-check-input" type="radio" id="formCheck-2"
-                                                        name="{{pregunta.enunciado}}"
-                                                        value="{{pregunta.opcion_correcta}}">
-                                                <label class="form-check-label"
-                                                        for="formCheck-2">{{pregunta.opcion_correcta}}</label>
-                                        </div>
-                                        <div class="form-check" style="margin-bottom: 30px;">
-                                                <input class="form-check-input" type="radio" id="formCheck-6"
-                                                        name="{{pregunta.enunciado}}" value="{{pregunta.opcion3}}">
-                                                <label class="form-check-label"
-                                                        for="formCheck-6">{{pregunta.opcion3}}</label>
-                                        </div>
-                                        {% endfor %}
-
-                                        <div class="mb-3">
-                                                <button class="btn btn-primary" type="submit">Siguiente</button>
-                                        </div>
-                                </form>
+                                <h1 class="display-4">¡Felicidades!</h1>
+                                <p class="lead">Has terminado el juego. Ya viste como funciona y si quieres jugar otra
+                                        vez se puede crear un boton aqui por el momento solo usa otro nombre</p>
                         </div>
-                </section>
+                        {%else%}
+                        <section class="clean-block  dark">
+                                <div class="container">
+                                        <div class="block-heading">
+                                                <h2 class="text-info">RONDA {{jugador.ronda_actual}}</h2>
+                                                <p>Responde las 5 preguntas y si las respondes correctamente pasas a la
+                                                        siguiente
+                                                        ronda.</p>
+                                        </div>
+                                        <form method="post">
+                                                {% for pregunta in preguntas %}
+                                                <p><b>{{pregunta.enunciado}}</b></p>
+
+
+                                                <div class="form-check">
+                                                        <input class="form-check-input" type="radio" id="formCheck-1"
+                                                                checked name="{{pregunta.enunciado}}"
+                                                                value="{{pregunta.opcion1}}">
+                                                        <label class="form-check-label"
+                                                                for="formCheck-1">{{pregunta.opcion1}}</label>
+                                                </div>
+                                                <div class="form-check">
+                                                        <input class="form-check-input" type="radio" id="formCheck-1"
+                                                                name="{{pregunta.enunciado}}"
+                                                                value="{{pregunta.opcion2}}">
+                                                        <label class="form-check-label"
+                                                                for="formCheck-1">{{pregunta.opcion2}}</label>
+                                                </div>
+                                                <div class="form-check">
+                                                        <input class="form-check-input" type="radio" id="formCheck-2"
+                                                                name="{{pregunta.enunciado}}"
+                                                                value="{{pregunta.opcion_correcta}}">
+                                                        <label class="form-check-label"
+                                                                for="formCheck-2">{{pregunta.opcion_correcta}}</label>
+                                                </div>
+                                                <div class="form-check" style="margin-bottom: 30px;">
+                                                        <input class="form-check-input" type="radio" id="formCheck-6"
+                                                                name="{{pregunta.enunciado}}"
+                                                                value="{{pregunta.opcion3}}">
+                                                        <label class="form-check-label"
+                                                                for="formCheck-6">{{pregunta.opcion3}}</label>
+                                                </div>
+                                                {% endfor %}
+
+                                                <div class="mb-3">
+                                                        <button class="btn btn-primary" type="submit">Siguiente</button>
+                                                </div>
+                                        </form>
+
+                                </div>
+                        </section>
+                        {% endif %}
         </main>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>

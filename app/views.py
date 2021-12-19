@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, redirect, url_for, request
 
-from app.models import Jugador
 from . import controller
 
 views = Blueprint('views', __name__)
@@ -18,10 +17,16 @@ def preguntas(nombre):
     lista_preguntas = controller.cargar_juego(nombre)
     jugador = controller.consultar_jugador(nombre)
 
+    if lista_preguntas == False:
+        return redirect(url_for("views.home"))
+
     if request.method =="POST":
         if controller.validar_respuestas(request.form):
             controller.subir_nivel(jugador)
             return redirect(url_for("views.preguntas", nombre=nombre))
+        else:
+            return redirect(url_for("views.preguntas", nombre=nombre))
+
 
 
 

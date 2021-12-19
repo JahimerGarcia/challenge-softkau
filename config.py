@@ -3,6 +3,7 @@ class Configuracion(object):
     """
     Configuracion comun entre ambientes de desarrollo y produccion
     """
+    SECRET_KEY = 'secret'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_DATABASE_URI = 'sqlite:///db.sqlite'
 
