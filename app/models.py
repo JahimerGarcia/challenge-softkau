@@ -7,6 +7,13 @@ class Categoria(db.Model):
     nivel_dificultad = db.Column(db.Integer, nullable=False)
     preguntas = db.relationship('Pregunta', backref='categoria', lazy=True)
 
+    def __init__(self) -> None:
+        pass
+
+    def __init__(self, nombre, nivel) -> None:
+        self.nombre = nombre
+        self.nivel_dificultad = nivel
+
     def __repr__(self):
         return '<Categoria %r>' % self.nombre
 
@@ -34,6 +41,9 @@ class Jugador(db.Model):
     nombre = db.Column(db.String(200), nullable=False)
     puntaje = db.Column(db.Integer, nullable=False, default=0)
     ronda_actual = db.Column(db.Integer, nullable=False, default=1)
+
+    def __init__(self, nombre):
+        self.nombre = nombre
 
 
     def __repr__(self):
