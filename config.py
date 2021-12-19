@@ -1,3 +1,4 @@
+#HERENCIA DE CLASE
 class Configuracion(object):
     """
     Configuracion comun entre ambientes de desarrollo y produccion

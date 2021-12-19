@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Inicio - sofkau</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap.min.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="shorcut icon" href="{{url_for('static',filename='favicon.png')}}">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="#">SoftkaU reto</a></div>
+    </nav>
+    <main class="page landing-page">
+        <section class="clean-block clean-hero"
+            style="color: rgba(9, 162, 255, 0.85);background: url(&quot;https://www.sofka.com.co/wp-content/uploads/2021/06/INTERNA-TEMA-1.jpg&quot;) no-repeat;background-size: cover;">
+            <div class="text">
+                <h2>Esto es un juego de preguntas sobre programación</h2>
+                <p>Para empezar el juego por favor escribe tu nombre o correo y dale al botón <strong>empezar</strong>!
+                </p>
+                <form class="d-flex justify-content-center flex-wrap" method="post">
+                    <div class="mb-3"><input class="form-control" required type="text" name="nombre"
+                            placeholder="Coloca tu apodo unico :)"></div>
+                    <div class="mb-3"><button class="btn btn-primary" type="submit">Empezar</button></div>
+                </form>
+            </div>
+        </section>
+        <section class="clean-block clean-info dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Información sobre el juego</h2>
+                    <p>Cada vez que respondas correctamente 5 preguntas subes de nivel y a medida que avanzas el juego
+                        se va colocando mas difícil al igual que suben las recompensas.</p>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-6"><img class="img-thumbnail img-fluid"
+                            src="https://www.plm.automation.siemens.com/media/global/es/is-820219790-640x360_tcm54-49149.jpg">
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Pon a prueba tu conocimiento y demuestra que eres el mejor</h3>
+                        <div class="getting-started-info">
+                            <p>Esto es un juego así que disfruta y diviértete. <br>No te frustres si no puedes
+                                responderlas bien o el juego te da un error!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="clean-block features">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Como esta construido?</h2>
+                    <p>Esto es un juego hecho con el framework Flask de python y es una aplicación
+                        monolítica.<br>&nbsp;Fue hecha con Python por la facilidad del lenguaje ya que solo tenia 3 días
+                        para hacerla. También utilice Bootstrap para el Front.</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 feature-box"><i class="icon-energy icon"></i>
+                        <h4>De una manera rapida</h4>
+                        <p>Se que el tiempo es uno de los recursos mas importantes de cada persona y decidí crear esto
+                            lo mas rápido posible siempre pensando en las personas que lo usaran</p>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-pencil icon"></i>
+                        <h4>Programando</h4>
+                        <p>Utilice conceptos que he aprendido antes y cada vez que creo un nuevo proyecto me siento
+                            capaz de crear cualquier cosa!</p>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-screen-smartphone icon"></i>
+                        <h4>Responsivo</h4>
+                        <p>Pensado para usar la pagina desde cualquier dispositivo y no limitar su uso solo al
+                            pc.<br>Además de crear un interfaz amigable</p>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-refresh icon"></i>
+                        <h4>Mejoras disponibles</h4>
+                        <p>Aun se pueden agregar mas funcionalidades y hacerlo mejor. Esto es un ciclo y toca aprender
+                            de los errores.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+
+</body>
+
+</html>
