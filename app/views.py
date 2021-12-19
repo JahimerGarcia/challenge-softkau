@@ -15,8 +15,12 @@ def home():
 
 @views.route("/<nombre>")
 def preguntas(nombre):
-    jugador = controller.cargar_jugador(nombre)
-    return render_template("preguntas.html", jugador= jugador)
+    lista_preguntas = controller.cargar_juego(nombre)
+    jugador = controller.consultar_jugador(nombre)
+
+    
+
+    return render_template("preguntas.html", preguntas= lista_preguntas, jugador=jugador)
 
 
 

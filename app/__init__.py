@@ -21,6 +21,7 @@ def create_app(config_name):
     def crear_categorias_preguntas():
         db.create_all()
         controller.definir_categorias()
+        controller.definir_preguntas()
     
     #debo hacer un blueprint de flask para cargar las vistas
 

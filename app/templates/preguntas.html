@@ -21,7 +21,8 @@
                                 href="#">{{jugador.nombre}}</a></div>
         </nav>
         <main class="page contact-us-page">
-                <section class="clean-block clean-form dark">
+                <!-- class="clean-block clean-form dark" -->
+                <section class="clean-block  dark">
                         <div class="container">
                                 <div class="block-heading">
                                         <h2 class="text-info">RONDA {{jugador.ronda_actual}}</h2>
@@ -30,33 +31,25 @@
                                                 ronda.</p>
                                 </div>
                                 <form>
-                                        <p>Responde las 5 preguntas y si las respondes correctamente pasas a la
-                                                siguiente ronda.<br></p>
+                                        {% for pregunta in preguntas %}
+                                        <p><b>{{pregunta.enunciado}}</b></p>
+
+
                                         <div class="form-check"><input class="form-check-input" type="radio"
                                                         id="formCheck-1"><label class="form-check-label"
-                                                        for="formCheck-1">Label</label></div>
+                                                        for="formCheck-1">{{pregunta.opcion1}}</label></div>
                                         <div class="form-check"><input class="form-check-input" type="radio"
                                                         id="formCheck-1"><label class="form-check-label"
-                                                        for="formCheck-1">Label</label></div>
+                                                        for="formCheck-1">{{pregunta.opcion2}}</label></div>
                                         <div class="form-check"><input class="form-check-input" type="radio"
                                                         id="formCheck-2"><label class="form-check-label"
-                                                        for="formCheck-2">Label</label></div>
-                                        <div class="form-check"><input class="form-check-input" type="radio"
-                                                        id="formCheck-6"><label class="form-check-label"
-                                                        for="formCheck-6">Label</label></div>
-                                        <p style="padding-top: 30px;">Paragraph</p>
-                                        <div class="form-check"><input class="form-check-input" type="radio"
-                                                        id="formCheck-3"><label class="form-check-label"
-                                                        for="formCheck-3">Label</label></div>
-                                        <div class="form-check"><input class="form-check-input" type="radio"
-                                                        id="formCheck-4"><label class="form-check-label"
-                                                        for="formCheck-4">Label</label></div>
-                                        <div class="form-check"><input class="form-check-input" type="radio"
-                                                        id="formCheck-5"><label class="form-check-label"
-                                                        for="formCheck-5">Label</label></div>
-                                        <div class="form-check"><input class="form-check-input" type="radio"
-                                                        id="formCheck-7"><label class="form-check-label"
-                                                        for="formCheck-7">Label</label></div>
+                                                        for="formCheck-2">{{pregunta.opcion_correcta}}</label></div>
+                                        <div class="form-check" style="margin-bottom: 30px;"><input
+                                                        class="form-check-input" type="radio" id="formCheck-6"><label
+                                                        class="form-check-label"
+                                                        for="formCheck-6">{{pregunta.opcion3}}</label></div>
+                                        {% endfor %}
+
                                         <div class="mb-3"><button class="btn btn-primary"
                                                         type="submit">Siguiente</button></div>
                                 </form>
